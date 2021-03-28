@@ -1,1 +1,1 @@
-# 02_berryMimi
+# 02_mimi
