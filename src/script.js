@@ -16,27 +16,26 @@ const mimiLoader = new GLTFLoader()
 
 mimiLoader.load(
     '/models/Mimi/mimi.gltf',
-    (mimi) =>
-    { 
-        for(let i = 0; i<5; i++){
-        let copy = mimi.scene.clone()
-        copy.position.set(i-2,i-2, 0)
-        copy.scale.set(0.1, 0.1, 0.1)
-        scene.add(copy)
+    (mimi) => {
+        for (let i = 0; i < 5; i++) {
+            let copy = mimi.scene.clone()
+            copy.position.set(i - 2, i - 2, 0)
+            copy.scale.set(0.1, 0.1, 0.1)
+            scene.add(copy)
 
-        mimi.scene.scale.set(0.2, 0.2, 0.2)
-        mimi.scene.position.set(-2, 0, 0)
-        scene.add(mimi.scene)
+            mimi.scene.scale.set(0.2, 0.2, 0.2)
+            mimi.scene.position.set(-2, 0, 0)
+            scene.add(mimi.scene)
 
-        let animate = () =>{
-        mimi.scene.rotation.y+=0.005
-        copy.rotation.x+=0.003
-        renderer.render(scene, camera)
-        requestAnimationFrame(animate)
+            let animate = () => {
+                mimi.scene.rotation.y += 0.005
+                copy.rotation.x += 0.003
+                renderer.render(scene, camera)
+                requestAnimationFrame(animate)
+            }
+            animate()
         }
-        animate()
     }
-}
 )
 
 /**
@@ -61,8 +60,7 @@ const sizes = {
     height: window.innerHeight
 }
 
-window.addEventListener('resize', () =>
-{
+window.addEventListener('resize', () => {
     // Update sizes
     sizes.width = window.innerWidth
     sizes.height = window.innerHeight
@@ -101,8 +99,7 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 const clock = new THREE.Clock()
 let previousTime = 0
 
-const tick = () =>
-{
+const tick = () => {
     const elapsedTime = clock.getElapsedTime()
     const deltaTime = elapsedTime - previousTime
     previousTime = elapsedTime
